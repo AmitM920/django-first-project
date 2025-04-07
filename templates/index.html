@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+  <body>
+    <h1>Welcome to the first django project <br />{{ title }}<br />{{ bdata }}</h1>
+
+    {% for n in clist %}
+      <div>{{ forloop.counter }}{{ n }}</div>
+    {% endfor %}
+    <br />
+    <table border="1" class="mytable">
+      <tr>
+        <th>Name</th>
+        <th>Contact number</th>
+      </tr>
+      <tbody>
+        {% for d in student_details %}
+          <tr>
+            <td>{{ d.name }}</td>
+            <td>{{ d.phone }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% if numbers|length %}
+      {% for n in numbers %}
+        {% if n > 20 %}
+          <div>{{ n }}</div>
+        {% endif %}
+      {% endfor %}
+    {% else %}
+      no data found
+    {% endif %}
+    <img src="static\images\img.jpg" alt="img" width="550" class="img" />
+    <a href="/about-us">About us</a>
+  </body>
+{% endblock %}
